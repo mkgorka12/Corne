@@ -92,13 +92,13 @@
 
         lower_layer {
             // -----------------------------------------------------------------------------------------
-            // | SYSR |     |     |     |     |     |   |     |  1  |  2  |  3  |  0  |      |
+            // | BOOT |     |     |     |     |     |   |     |  1  |  2  |  3  |  0  | BOOT |
             // |      |     |     | UP  |     |     |   |     |  4  |  5  |  6  |     |      |
             // |      |     | LFT | DWN | RGT |     |   |     |  7  |  8  |  9  |     |      |
             //                    |     |     | SPC |   | SPC |     |     |
 
             bindings = <
-&sys_reset  &trans  &trans    &trans    &trans     &trans       &trans   &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp N0  &trans
+&bootloader  &trans  &trans    &trans    &trans     &trans       &trans   &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp N0  &bootloader
 &trans      &trans  &trans    &kp UP    &trans     &trans       &trans   &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &trans  &trans
 &trans      &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &trans       &trans   &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &trans  &trans
                               &trans    &trans     &kp SPACE    &kp SPACE  &trans        &trans
@@ -110,25 +110,25 @@
             // |  TAB |  !  |  @  |  #  |  &  |  %  |   |  ^  |  $  |  *  |  (  |  )  | BSPC |
             // | CTRL |MUTE |V_UP |V_DWN|  <  |  >  |   |  -  |  =  |  [  |  ]  |  \  |  `   |
             // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-            //                    | GUI |     | SPC |   | SPC |     | ALT |
+            //                    | GUI |     | SPC |   | SPC |     |     |
 
             bindings = <
 &kp TAB    &kp EXCL     &kp AT              &kp HASH            &kp AMPERSAND  &kp PRCNT           &kp CARET  &kp DOLLAR  &kp ASTRK  &kp LPAR  &kp RPAR  &kp BSPC
 &kp LCTRL  &kp C_MUTE   &kp C_VOLUME_DOWN   &kp C_VOLUME_UP     &kp LESS_THAN  &kp GREATER_THAN    &kp MINUS  &kp EQUAL   &kp LBKT   &kp RBKT  &kp BSLH  &kp GRAVE
 &kp LSHFT  &trans       &trans              &trans              &trans         &trans              &kp UNDER  &kp PLUS    &kp LBRC   &kp RBRC  &kp PIPE  &kp TILDE
-                                            &kp LGUI            &trans         &kp SPACE           &kp SPACE    &trans      &kp RALT
+                                            &kp LGUI            &trans         &kp SPACE           &kp SPACE    &trans      &trans
             >;
         };
 
         adjust_layer {
             // -----------------------------------------------------------------------------------------
-            // | BOOT | BT 1 | BT 2 | BT 3 | BT 4 | BT 5 |   |     |     |     |     |     | BOOT |
+            // |      | BT 1 | BT 2 | BT 3 | BT 4 | BT 5 |   |     |     |     |     |     |      |
             // |BT_CLR|      |      |      |      |      |   |     |     |     |     |     |BT_CLR|
             // |OUT_TG|CLRALL|      |      |      |      |   |     |     |     |     |     |      |
             //                      |      |      |      |   |     |     |     |
 
             bindings = <
-&bootloader   &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &none  &none  &none  &none  &none  &bootloader
+&none         &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &none  &none  &none  &none  &none  &none
 &bt BT_CLR    &none           &none         &none         &none         &none           &none  &none  &none  &none  &none  &bt BT_CLR
 &out OUT_TOG  &bt BT_CLR_ALL  &none         &none         &none         &sys_reset      &none  &none  &none  &none  &none  &sys_reset
                                             &trans        &trans        &trans          &trans &trans &trans
