@@ -8,7 +8,6 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
-#include <dt-bindings/zmk/pointing.h>
 
 / {
     conditional_layers {
@@ -90,10 +89,10 @@
             //                    | GUI | LWR | SPC |   | SPC | L2   | L1  |
 
             bindings = <
-&kp ESCAPE  &kp Q         &kp W        &kp E           &kp R       &kp T        &kp Y      &kp U          &kp I       &kp O        &kp P                 &kp GRAVE
-&kp EQUAL   &mt LSHIFT A  &mt LCTRL S  &mt LEFT_WIN D  &mt LALT F  &kp G        &kp H      &mt RALT J     &mt RWIN K  &mt RCTRL L  &mt RSHIFT SEMICOLON  &kp APOSTROPHE
-&kp MINUS   &kp Z         &kp X        &kp C           &kp V       &kp B        &kp N      &kp M          &kp COMMA   &kp DOT      &kp SLASH             &kp BACKSLASH
-                                       &mo 1           &kp TAB     &kp SPACE    &kp ENTER  &kp BACKSPACE  &mo 2
+&kp ESCAPE  &kp Q         &kp W        &kp E           &kp R            &kp T        &kp Y      &kp U            &kp I       &kp O        &kp P                 &kp GRAVE
+&kp EQUAL   &mt LSHIFT A  &mt LCTRL S  &mt LEFT_WIN D  &mt LALT F       &kp G        &kp H      &mt LEFT_ALT J   &mt LWIN K  &mt RCTRL L  &mt RSHIFT SEMICOLON  &kp APOSTROPHE
+&kp MINUS   &kp Z         &kp X        &kp C           &mt RIGHT_ALT V  &kp B        &kp N      &mt RIGHT_ALT M  &kp COMMA   &kp DOT      &kp SLASH             &kp BACKSLASH
+                                       &mo 1           &kp TAB          &kp SPACE    &kp ENTER  &kp BACKSPACE    &mo 2
             >;
         };
 
@@ -105,10 +104,10 @@
             //                    |     |     | SPC |   | SPC |     |     |
 
             bindings = <
-&none   &mmv MOVE_LEFT         &mmv MOVE_DOWN        &mmv MOVE_UP       &mmv MOVE_RIGHT       &trans    &mkp LCLK     &kp NUMBER_7            &kp NUMBER_8       &kp NUMBER_9                &none            &bootloader
-&trans  &mt LSHIFT LEFT_ARROW  &mt LCTRL DOWN_ARROW  &mt LWIN UP_ARROW  &mt LALT RIGHT_ARROW  &trans    &mkp RCLK     &mt RIGHT_ALT NUMBER_4  &mt RWIN NUMBER_5  &mt RIGHT_CONTROL NUMBER_6  &kp RIGHT_SHIFT  &trans
-&trans  &trans                 &none                 &none              &none                 &trans    &kp NUMBER_0  &kp NUMBER_1            &kp NUMBER_2       &kp NUMBER_3                &trans           &trans
-                                                     &trans             &trans                &none     &none         &trans                  &trans
+&none   &kp LEFT    &kp DOWN   &kp UP_ARROW  &kp RIGHT      &trans    &none  &kp NUMBER_7            &kp NUMBER_8       &kp NUMBER_9                &none            &bootloader
+&trans  &kp LSHIFT  &kp LCTRL  &kp LWIN      &kp LALT       &trans    &none  &mt LEFT_ALT NUMBER_4   &mt LGUI NUMBER_5  &mt RIGHT_CONTROL NUMBER_6  &kp RIGHT_SHIFT  &trans
+&trans  &none       &none      &none         &kp RIGHT_ALT  &trans    &none  &mt RIGHT_ALT NUMBER_1  &kp NUMBER_2       &kp NUMBER_3                &trans           &trans
+                               &trans        &trans         &none     &none  &kp NUMBER_0            &trans
             >;
         };
 
@@ -135,10 +134,10 @@
             //                      |      |      |      |   |     |     |     |
 
             bindings = <
-&out OUT_TOG    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &none   &none   &none   &none  &none  &none
-&bt BT_CLR      &none         &none         &none         &none         &none           &none   &none   &none   &none  &none  &none
-&bt BT_CLR_ALL  &none         &none         &none         &none         &bootloader     &none   &none   &none   &none  &none  &sys_reset
-                                            &trans        &trans        &trans          &trans  &trans  &trans
+&out OUT_TOG    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &none        &none   &none   &none  &none  &none
+&bt BT_CLR      &none         &none         &none         &none         &none           &none        &none   &none   &none  &none  &none
+&bt BT_CLR_ALL  &none         &none         &none         &none         &bootloader     &bootloader  &none   &none   &none  &none  &sys_reset
+                                            &trans        &trans        &trans          &trans       &trans  &trans
             >;
         };
     };
